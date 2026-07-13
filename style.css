@@ -81,6 +81,11 @@ nav a:hover{
     margin:20px auto;
 }
 
+.hero h2{
+    color:white;
+    font-size:38px;
+}
+
 /* Buttons */
 
 .btn{
