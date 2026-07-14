@@ -1,260 +1,466 @@
-/* ==========================
-   Islamic Website CSS
-========================== */
+/* =========================
+   GENERAL
+========================= */
 
-/* Body */
-
-body{
+*{
     margin:0;
     padding:0;
-    font-family:"Jameel Noori Nastaleeq", serif;
-    background:#f5f5f5;
-    text-align:center;
+    box-sizing:border-box;
 }
-
-/* Smooth Scroll */
 
 html{
     scroll-behavior:smooth;
 }
 
-/* Navigation */
+body{
+    font-family:'Noto Naskh Arabic', serif;
+    background:#f4f7f4;
+    color:#222;
+    line-height:1.8;
+}
+
+/* =========================
+   NAVBAR
+========================= */
 
 nav{
     background:#0b6b2f;
-    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:999;
 }
 
-nav a{
+.logo{
     color:white;
-    text-decoration:none;
-    margin:0 15px;
-    font-size:22px;
+    font-size:28px;
     font-weight:bold;
 }
 
-nav a:hover{
-    color:yellow;
-}
-
-/* Headings */
-
-.hero h2{
-    color:white;
-    font-size:38px;
-}
-
-.hero p{
-    color:white;
-    font-size:20px;
-}
-
-/* Hero Section */
-
-.hero{
-    position: relative;
-    text-align: center;
-    padding: 60px 20px;
-    min-height: 700px;
-
-    background-image:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("images/background.jpeg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-} 
-
-/* Slider */
-
-#slider{
-    width:700px;
-    max-width:90%;
-    height:400px;
-    object-fit:cover;
-    border-radius:20px;
-    display:block;
-    margin:20px auto;
-}
-
-.hero h2{
-    color:white;
-    font-size:38px;
-}
-
-/* Buttons */
-
-.btn{
-    display:inline-block;
-    background:green;
-    color:white;
-    padding:12px 25px;
-    text-decoration:none;
-    border-radius:10px;
-    font-size:20px;
-}
-
-.btn:hover{
-    background:darkgreen;
-}
-
-/* Images */
-
-img{
-    max-width:100%;
-    border-radius:15px;
-}
-
-/* ==========================
-   Gallery & Service Boxes
-========================== */
-
-.container{
+nav ul{
     display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-    margin:40px 20px;
+    list-style:none;
+    gap:20px;
 }
 
-.box{
-    width:280px;
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 0 15px lightgray;
-    transition:0.3s;
-}
-
-.box:hover{
-    transform:translateY(-10px);
-}
-
-.box img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-.box h3{
-    color:green;
-}
-
-.box p{
-    font-size:20px;
-    color:#444;
-}
-
-/* ==========================
-   Prayer Table
-========================== */
-
-table{
-    width:70%;
-    margin:30px auto;
-    border-collapse:collapse;
-}
-
-table,th,td{
-    border:2px solid green;
-}
-
-th{
-    background:green;
+nav ul li a{
     color:white;
-    padding:12px;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
 }
 
-td{
+nav ul li a:hover{
+    color:#ffd700;
+}
+
+nav button{
+    background:white;
+    color:#0b6b2f;
+    border:none;
+    padding:10px 18px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* =========================
+   CLOCK
+========================= */
+
+#clock,
+#date{
+    background:#145a32;
+    color:white;
+    text-align:center;
     padding:10px;
     font-size:20px;
 }
 
-tr:nth-child(even){
-    background:#e8f5e9;
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("images/background.jpeg");
+
+    background-size:cover;
+    background-position:center;
 }
 
-/* ==========================
-   Contact Form
-========================== */
-
-form{
-    margin:40px auto;
-}
-
-input,
-textarea{
-    width:350px;
-    max-width:90%;
-    padding:12px;
-    border:2px solid green;
-    border-radius:8px;
-    font-size:18px;
-}
-
-button{
-    background:green;
+.hero h1{
     color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:18px;
+    font-size:70px;
 }
 
-button:hover{
-    background:darkgreen;
+.hero h2{
+    color:white;
+    margin-top:20px;
 }
 
-/* ==========================
-   Footer
-========================== */
+.hero p{
+    color:#f2f2f2;
+    margin:20px auto;
+    max-width:700px;
+}
 
-footer{
+.btn{
+    display:inline-block;
     background:#0b6b2f;
     color:white;
-    padding:20px;
-    margin-top:40px;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:40px;
+    transition:.3s;
 }
 
-/* ==========================
-   Mobile Responsive
-========================== */
+.btn:hover{
+    background:#14883f;
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+#slider{
+    width:850px;
+    max-width:95%;
+    height:450px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.prev,
+.next{
+    background:#0b6b2f;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    margin:20px 10px;
+    border-radius:8px;
+    cursor:pointer;
+} 
+
+/* =========================
+   GALLERY
+========================= */
+
+#gallery{
+    padding:70px 20px;
+    text-align:center;
+    background:#ffffff;
+}
+
+#gallery h2{
+    font-size:38px;
+    color:#0b6b2f;
+    margin-bottom:40px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.box{
+    width:320px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.box:hover{
+    transform:translateY(-12px);
+}
+
+.box img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.box h3{
+    color:#0b6b2f;
+    margin:15px 0;
+}
+
+.box p{
+    padding:0 15px 20px;
+    color:#555;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+#video{
+    padding:70px 20px;
+    text-align:center;
+    background:#f4f7f4;
+}
+
+#video h2{
+    color:#0b6b2f;
+    margin-bottom:25px;
+}
+
+#video iframe{
+    width:90%;
+    max-width:900px;
+    height:500px;
+    border:none;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,0,0,.25);
+}
+
+/* =========================
+   AYAH
+========================= */
+
+#ayah{
+    padding:70px 20px;
+    text-align:center;
+}
+
+#ayah h2{
+    color:#0b6b2f;
+    margin-bottom:20px;
+}
+
+#ayah-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    font-size:24px;
+    line-height:2;
+}
+
+/* =========================
+   PRAYER TIMES
+========================= */
+
+#prayer{
+    padding:70px 20px;
+    text-align:center;
+    background:#f8f8f8;
+}
+
+#prayer h2{
+    color:#0b6b2f;
+    margin-bottom:20px;
+}
+
+#prayer-times{
+    width:420px;
+    max-width:95%;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    font-size:22px;
+    line-height:2;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:768px){
 
-    nav a{
-        display:block;
-        margin:10px;
-    }
-
-    #slider{
-        width:95%;
-        height:250px;
-    }
-
-    table{
-        width:95%;
-    }
-
-    .box{
-        width:90%;
-    }
-
-    input,
-    textarea{
-        width:90%;
-    }
+#video iframe{
+    height:250px;
 }
 
-/* ==========================
-   Dark Mode
-========================== */
+.box{
+    width:95%;
+}
+
+#ayah-box{
+    font-size:20px;
+}
+
+#prayer-times{
+    width:95%;
+}
+
+}
+
+/* =========================
+   TASBEEH COUNTER
+========================= */
+
+#tasbeeh{
+    padding:70px 20px;
+    text-align:center;
+    background:#ffffff;
+}
+
+#tasbeeh h2{
+    color:#0b6b2f;
+    margin-bottom:20px;
+}
+
+#count{
+    font-size:80px;
+    color:#0b6b2f;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+#tasbeeh button{
+
+    background:#0b6b2f;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    margin:10px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:20px;
+    transition:.3s;
+
+}
+
+#tasbeeh button:hover{
+
+    background:#14883f;
+    transform:scale(1.05);
+
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+#contact{
+
+    padding:70px 20px;
+    background:#f4f7f4;
+    text-align:center;
+
+}
+
+#contact h2{
+
+    color:#0b6b2f;
+    margin-bottom:30px;
+
+}
+
+form{
+
+    max-width:700px;
+    margin:auto;
+
+}
+
+form input,
+form textarea{
+
+    width:100%;
+    padding:15px;
+    margin:12px 0;
+    border:2px solid #0b6b2f;
+    border-radius:10px;
+    font-size:18px;
+
+}
+
+form textarea{
+
+    height:180px;
+    resize:none;
+
+}
+
+form button{
+
+    background:#0b6b2f;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+
+}
+
+form button:hover{
+
+    background:#14883f;
+
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+#topBtn{
+
+    position:fixed;
+    bottom:25px;
+    left:25px;
+    display:none;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#0b6b2f;
+    color:white;
+
+    font-size:22px;
+    cursor:pointer;
+
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+
+    transition:.3s;
+
+}
+
+#topBtn:hover{
+
+    background:#14883f;
+    transform:scale(1.1);
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#0b6b2f;
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-size:18px;
+
+}
+
+/* =========================
+   DARK MODE
+========================= */
 
 .dark{
     background:#121212;
@@ -265,172 +471,241 @@ footer{
     background:#000;
 }
 
-.dark .box{
-    background:#1f1f1f;
+.dark footer{
+    background:#000;
+}
+
+.dark .box,
+.dark #ayah-box,
+.dark #prayer-times{
+    background:#1e1e1e;
     color:white;
+}
+
+.dark #contact{
+    background:#181818;
+}
+
+.dark form input,
+.dark form textarea{
+    background:#2a2a2a;
+    color:white;
+    border:2px solid #0b6b2f;
 }
 
 .dark h1,
 .dark h2,
 .dark h3,
-.dark p,
-.dark td,
-.dark th{
+.dark p{
     color:white;
 }
 
-.dark table{
-    border-color:white;
-}
-
-.dark th{
-    background:#333;
-}
-
-.dark td{
-    background:#222;
-}
-
-/* ==========================
-   Clock & Date
-========================== */
-
-#clock{
+.dark .btn,
+.dark button{
     background:#0b6b2f;
     color:white;
-    font-size:24px;
-    font-weight:bold;
-    padding:10px;
-    margin-top:15px;
 }
 
-#date{
-    background:#145a32;
-    color:white;
-    font-size:22px;
-    padding:10px;
-}
+/* =========================
+   SMOOTH ANIMATION
+========================= */
 
-/* ==========================
-   Tasbeeh Counter
-========================== */
-
-#tasbeeh{
-    width:350px;
-    max-width:90%;
-    margin:40px auto;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 0 15px lightgray;
-}
-
-#count{
-    font-size:60px;
-    color:green;
-    margin:20px 0;
-}
-
-#tasbeeh button{
-    margin:10px;
-}
-
-/* ==========================
-   Prayer Times
-========================== */
-
-#prayer-times{
-    width:420px;
-    max-width:90%;
-    margin:30px auto;
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 15px lightgray;
-    font-size:22px;
-    line-height:2;
-}
-
-/* ==========================
-   Back To Top Button
-========================== */
-
-#topBtn{
-    display:none;
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#0b6b2f;
-    color:white;
-    border:none;
-    border-radius:50%;
-    width:55px;
-    height:55px;
-    font-size:22px;
-    cursor:pointer;
-    box-shadow:0 0 10px gray;
-    z-index:999;
-}
-
-#topBtn:hover{
-    background:#145a32;
-}
-
-/* ==========================
-   Animation
-========================== */
-
+.hero,
 .box,
-button,
-.btn,
-#slider{
-    transition:0.4s;
+#ayah-box,
+#prayer-times,
+#tasbeeh,
+#contact,
+footer{
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   HOVER EFFECTS
+========================= */
+
+.box{
+
+    transition:.4s;
+
 }
 
 .box:hover{
-    transform:translateY(-8px);
+
+    transform:translateY(-12px) scale(1.03);
+
 }
 
-/* ==========================
-   YouTube Video
-========================== */
+.btn,
+button{
 
-#video{
-    margin:60px auto;
+    transition:.3s;
+
+}
+
+.btn:hover,
+button:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* =========================
+   IMAGE EFFECT
+========================= */
+
+.box img,
+#slider{
+
+    transition:.5s;
+
+}
+
+.box img:hover{
+
+    transform:scale(1.08);
+
+}
+
+#slider:hover{
+
+    transform:scale(1.02);
+
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+nav{
+
+    flex-direction:column;
+    padding:15px;
+
+}
+
+nav ul{
+
+    flex-direction:column;
+    width:100%;
     text-align:center;
+    gap:12px;
+
+}
+
+.logo{
+
+    margin-bottom:15px;
+
+}
+
+.hero{
+
+    padding:40px 15px;
+
+}
+
+.hero h1{
+
+    font-size:50px;
+
+}
+
+.hero h2{
+
+    font-size:28px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+#slider{
+
+    width:100%;
+    height:240px;
+
 }
 
 #video iframe{
-    width:80%;
-    max-width:900px;
-    height:500px;
-    border-radius:20px;
-    box-shadow:0 0 20px gray;
+
+    width:100%;
+    height:230px;
+
 }
 
-@media (max-width:768px){
-    #video iframe{
-        width:95%;
-        height:250px;
-    }
+.container{
+
+    flex-direction:column;
+    align-items:center;
+
 }
 
-/* ===== Daily Quran Ayah ===== */
+.box{
 
-#ayah{
-    margin:50px auto;
-    text-align:center;
+    width:95%;
+
 }
 
+form{
+
+    width:100%;
+
+}
+
+#prayer-times,
 #ayah-box{
-    width:80%;
-    max-width:800px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 0 15px lightgray;
-    font-size:28px;
-    color:darkgreen;
-    line-height:2;
+
+    width:95%;
+
+}
+
+#count{
+
+    font-size:55px;
+
+}
+
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0b6b2f;
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
 }

@@ -1,3 +1,7 @@
+/* =========================
+   IMAGE SLIDER
+========================= */
+
 const images = [
     "images/background.jpeg",
     "images/mosque.jpeg",
@@ -10,7 +14,9 @@ let current = 0;
 const slider = document.getElementById("slider");
 
 function showImage() {
-    slider.src = images[current];
+    if (slider) {
+        slider.src = images[current];
+    }
 }
 
 function nextImage() {
@@ -33,46 +39,274 @@ function previousImage() {
     showImage();
 }
 
-// ہر 3 سیکنڈ بعد تصویر بدلے گی
-setInterval(nextImage, 3000); 
-
-function darkMode() {
-    document.body.classList.toggle("dark");
+if (slider) {
+    setInterval(nextImage, 3000);
 }
 
-function updateClock(){
+/* =========================
+   DARK MODE
+========================= */
+
+function darkMode() {
+
+    document.body.classList.toggle("dark");
+
+}
+
+/* =========================
+   LIVE CLOCK
+========================= */
+
+function updateClock() {
 
     const now = new Date();
 
-    document.getElementById("clock").innerHTML =
-    now.toLocaleTimeString();
+    const clock = document.getElementById("clock");
+
+    if (clock) {
+        clock.innerHTML = now.toLocaleTimeString("ur-PK");
+    }
 
 }
 
-setInterval(updateClock,1000);
+setInterval(updateClock, 1000);
 
 updateClock();
+
+/* =========================
+   LIVE DATE
+========================= */
 
 function updateDate() {
 
     const today = new Date();
 
-    document.getElementById("date").innerHTML =
-        today.toDateString();
+    const date = document.getElementById("date");
+
+    if (date) {
+        date.innerHTML = today.toLocaleDateString("ur-PK", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+    }
 
 }
 
-setInterval(updateDate,1000);
-
 updateDate();
 
+/* =========================
+   TASBEEH COUNTER
+========================= */
+
 let count = 0;
+
+const countDisplay = document.getElementById("count");
+
+function increase() {
+
+    count++;
+
+    if (countDisplay) {
+        countDisplay.innerHTML = count;
+    }
+
+}
+
+function resetCount() {
+
+    count = 0;
+
+    if (countDisplay) {
+        countDisplay.innerHTML = count;
+    }
+
+}
+
+/* =========================
+   BACK TO TOP BUTTON
+========================= */
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function () {
+
+    if (!topBtn) return;
+
+    if (window.scrollY > 300) {
+
+        topBtn.style.display = "block";
+
+    } else {
+
+        topBtn.style.display = "none";
+
+    }
+
+});
+
+function topFunction() {
+
+    window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+    });
+
+}
+
+/* =========================
+   SMOOTH LINKS
+========================= */
+
+document.querySelectorAll('nav a').forEach(link => {
+
+    link.addEventListener('click', function(e){
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if(target){
+
+            target.scrollIntoView({
+
+                behavior:"smooth"
+
+            });
+
+        }
+
+    });
+
+});
+
+/* =========================
+   PRAYER TIMES API
+========================= */
+
+fetch("https://api.aladhan.com/v1/timingsByCity?city=Lahore&country=Pakistan&method=2")
+.then(response => response.json())
+.then(data => {
+
+    const timings = data.data.timings;
+
+    const prayerBox = document.getElementById("prayer-times");
+
+    if(prayerBox){
+
+        prayerBox.innerHTML = `
+
+        <p>🌅 فجر : ${timings.Fajr}</p>
+
+        <p>☀️ ظہر : ${timings.Dhuhr}</p>
+
+        <p>🌇 عصر : ${timings.Asr}</p>
+
+        <p>🌆 مغرب : ${timings.Maghrib}</p>
+
+        <p>🌙 عشاء : ${timings.Isha}</p>
+
+        `;
+
+    }
+
+})
+
+.catch(() => {
+
+    document.getElementById("prayer-times").innerHTML =
+    "نماز کے اوقات لوڈ نہیں ہو سکے۔";
+
+});
+
+
+/* =========================
+   DAILY QURAN AYAH
+========================= */
+
+fetch(https://api.alquran.cloud/v1/ayah/262/ar.alafasy
+
+.then(response => response.json())
+
+.then(data => {
+
+    const ayah = document.getElementById("ayah-box");
+
+    if(ayah){
+
+        ayah.innerHTML = `
+
+        <h3>📖 قرآن مجید</h3>
+
+        <p>${data.data.text}</p>
+
+        <br>
+
+        <strong>سورۃ نمبر ${data.data.surah.number}</strong>
+
+        `;
+
+    }
+
+})
+
+.catch(() => {
+
+    document.getElementById("ayah-box").innerHTML =
+    "آیت لوڈ نہیں ہو سکی۔";
+
+});
+
+/* =========================
+   SAVE DARK MODE
+========================= */
+
+if(localStorage.getItem("theme") === "dark"){
+
+    document.body.classList.add("dark");
+
+}
+
+function darkMode(){
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+
+        localStorage.setItem("theme","dark");
+
+    }else{
+
+        localStorage.setItem("theme","light");
+
+    }
+
+}
+
+/* =========================
+   SAVE TASBEEH COUNT
+========================= */
+
+let savedCount = localStorage.getItem("tasbeehCount");
+
+if(savedCount !== null){
+
+    count = parseInt(savedCount);
+
+    document.getElementById("count").innerHTML = count;
+
+}
 
 function increase(){
 
     count++;
 
     document.getElementById("count").innerHTML = count;
+
+    localStorage.setItem("tasbeehCount",count);
 
 }
 
@@ -82,54 +316,57 @@ function resetCount(){
 
     document.getElementById("count").innerHTML = count;
 
+    localStorage.setItem("tasbeehCount",count);
+
 }
-fetch("https://api.aladhan.com/v1/timingsByCity?city=Lahore&country=Pakistan&method=2")
-.then(response => response.json())
-.then(data => {
 
-    const timings = data.data.timings;
+/* =========================
+   LOADING EFFECT
+========================= */
 
-    document.getElementById("prayer-times").innerHTML = `
-        <p>🌅 فجر: ${timings.Fajr}</p>
-        <p>☀️ ظہر: ${timings.Dhuhr}</p>
-        <p>🌇 عصر: ${timings.Asr}</p>
-        <p>🌆 مغرب: ${timings.Maghrib}</p>
-        <p>🌙 عشاء: ${timings.Isha}</p>
-    `;
+window.addEventListener("load",function(){
+
+    document.body.style.opacity="1";
 
 });
 
-// ===== Back To Top Button =====
+/* =========================
+   FADE EFFECT
+========================= */
 
-let topBtn = document.getElementById("topBtn");
+const sections=document.querySelectorAll("section");
 
-window.onscroll = function () {
-    if (document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-};
+const observer=new IntersectionObserver((entries)=>{
 
-function topFunction() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
 }
 
-const ayat = [
+});
 
-"إِنَّ مَعَ الْعُسْرِ يُسْرًا (بیشک ہر مشکل کے ساتھ آسانی ہے) — سورۃ الشرح 94:6",
+});
 
-"وَاللَّهُ خَيْرُ الرَّازِقِينَ (اور اللہ سب سے بہتر رزق دینے والا ہے) — سورۃ الجمعہ 62:11",
+sections.forEach(section=>{
 
-"فَاذْكُرُونِي أَذْكُرْكُمْ (تم میرا ذکر کرو، میں تمہارا ذکر کروں گا) — سورۃ البقرہ 2:152",
+section.style.opacity="0";
 
-"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ (بیشک اللہ صبر کرنے والوں کے ساتھ ہے) — سورۃ البقرہ 2:153"
+section.style.transform="translateY(40px)";
 
-];
+section.style.transition="1s";
 
-let randomAyah = Math.floor(Math.random() * ayat.length);
+observer.observe(section);
 
-document.getElementById("ayah-box").innerHTML = ayat[randomAyah];
+});
+
+/* =========================
+   COPYRIGHT YEAR
+========================= */
+
+document.querySelector("footer").innerHTML =
+`© ${new Date().getFullYear()} Islamic Website | All Rights Reserved`;

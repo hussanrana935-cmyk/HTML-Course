@@ -1,186 +1,333 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="ur" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Islamic Website</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+<!-- ================= NAVBAR ================= -->
 
-    <button onclick="darkMode()">🌙 Dark Mode</button>
+<nav>
+
+<div class="logo">
+🕌 Islamic Website
+</div>
+
+<ul>
+
+<li><a href="#home">HOME</a></li>
+
+<li><a href="#about"></a></li>
+
+<li><a href="#gallery">GALLERY</a></li>
+
+<li><a href="#video">VIDEO</a></li>
+
+<li><a href="#Ayat">AYAT</a></li>
+
+<li><a href="#prayer">PRAYER</a></li>
+
+<li><a href="#tasbeeh">TASBEEH</a></li>
+
+<li><a href="#contact">CONTACT</a></li>
+
+</ul>
+
+<button onclick="darkMode()">
+
+🌙
+
+</button>
+
 </nav>
 
+<!-- Clock -->
+
 <div id="clock"></div>
+
 <div id="date"></div>
-    <!-- Home -->
-   <section id="home">
 
-    <h1>﷽</h1>
+<!-- ================= HERO ================= -->
 
-      <h2>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ</h2>
+<section id="home">
 
-    <div class="hero">
+<div class="hero">
 
-        <img id="slider" src="images/background.jpeg" alt="Islamic Slider">
+<img id="slider" src="images/background.jpeg">
 
-        <button class="prev" onclick="previousImage()">❮</button>
+<button class="prev" onclick="previousImage()">
 
-        <button class="next" onclick="nextImage()">❯</button>
+❮
 
-        <h2>🕌 اسلامی ویب سائٹ میں خوش آمدید</h2>
+</button>
 
-        <p>قرآن، نماز، دعا اور اسلامی معلومات ایک ہی جگہ۔</p>
+<button class="next" onclick="nextImage()">
 
-        <a href="https://quran.com" target="_blank" class="btn">
-            قرآن مجید پڑھیں
-        </a>
+❯
 
-    </div>
+</button>
+
+<h1>
+
+﷽
+
+</h1>
+
+<h2>
+
+اسلامی ویب سائٹ میں خوش آمدید
+
+</h2>
+
+<p>
+
+قرآن پاک، نماز، دعا، حدیث اور اسلامی معلومات
+
+</p>
+
+<a href="https://quran.com" target="_blank" class="btn">
+
+قرآن مجید پڑھیں
+
+</a>
+
+</div>
 
 </section>
 
+<!-- ================= ABOUT ================= -->
 
-    <!-- About -->
-    <section id="about">
+<section id="about">
 
-        <h2>ہمارے بارے میں</h2>
+<h2>
 
-        <p>
-            یہ اسلامی ویب سائٹ قرآن پاک، نماز، دعاؤں اور اسلامی معلومات فراہم کرنے کے لیے بنائی گئی ہے۔
-        </p>
+ہمارے بارے میں
 
-    </section>
+</h2>
 
-    <!-- Gallery -->
-    <section id="gallery">
+<p>
 
-        <h2>اسلامی گیلری</h2>
+یہ ویب سائٹ قرآن پاک، نماز، حدیث، دعا، اسلامی تعلیمات اور روزانہ کی رہنمائی فراہم کرنے کیلئے بنائی گئی ہے۔
 
-        <div class="container">
+</p>
 
-            <div class="box">
-    <img src="images/quran.jpg" alt="Quran">
-    <h3>قرآن</h3>
-    <p>قرآن مجید کی تلاوت کریں۔</p>
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+<h2>
+
+اسلامی گیلری
+
+</h2>
+
+<div class="container">
+
+<div class="box">
+
+<img src="images/quran.jpg">
+
+<h3>
+
+قرآن
+
+</h3>
+
+<p>
+
+قرآن مجید کی تلاوت کریں۔
+
+</p>
+
 </div>
 
 <div class="box">
-    <img src="images/mosque.jpeg" alt="Mosque">
-    <h3>نماز</h3>
-    <p>پانچ وقت کی نماز ادا کریں۔</p>
+
+<img src="images/mosque.jpeg">
+
+<h3>
+
+نماز
+
+</h3>
+
+<p>
+
+پانچ وقت نماز ادا کریں۔
+
+</p>
+
 </div>
 
 <div class="box">
-    <img src="images/dua.jpg" alt="Dua">
-    <h3>دعا</h3>
-    <p>روزانہ دعائیں پڑھیں۔</p>
+
+<img src="images/dua.jpg">
+
+<h3>
+
+دعائیں
+
+</h3>
+
+<p>
+
+روزانہ مسنون دعائیں پڑھیں۔
+
+</p>
+
 </div>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
-<!-- YouTube Video -->
+<!-- ================= VIDEO ================= -->
+
 <section id="video">
 
-    <h2>🎥 میری اسلامی ویڈیو</h2>
+<h2>
 
-    <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/FdE2f7wdzMw?si=WaOwwM1OOQFLOc6g"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-    </iframe>
+🎥 اسلامی ویڈیو
+
+</h2>
+
+<iframe
+
+src="https://www.youtube.com/embed/FdE2f7wdzMw"
+
+allowfullscreen>
+
+</iframe>
 
 </section>
 
-<!-- Daily Quran Ayah -->
+<!-- ================= DAILY AYAH ================= -->
 
 <section id="ayah">
 
-    <h2>📖 آج کی قرآنی آیت</h2>
+<h2>
 
-    <div id="ayah-box">
-        لوڈ ہو رہا ہے...
-    </div>
+📖 آج کی قرآنی آیت
+
+</h2>
+
+<div id="ayah-box">
+
+لوڈ ہو رہا ہے...
+
+</div>
 
 </section>
 
-    <!-- Prayer Time -->
-   
-        <h2>🕌 نمازوں کے اوقات</h2>
+<!-- ================= PRAYER ================= -->
+
+<section id="prayer">
+
+<h2>
+
+🕌 نمازوں کے اوقات
+
+</h2>
 
 <div id="prayer-times">
-    لوڈ ہو رہا ہے...
+
+لوڈ ہو رہا ہے...
+
 </div>
 
+</section>
 
-
-    <!-- Tasbeeh Counter -->
+<!-- ================= TASBEEH ================= -->
 
 <section id="tasbeeh">
 
-    <h2>📿 تسبیح کاؤنٹر</h2>
+<h2>
 
-    <h1 id="count">0</h1>
+📿 تسبیح کاؤنٹر
 
-    <button onclick="increase()">سبحان اللہ</button>
+</h2>
 
-    <button onclick="resetCount()">ری سیٹ</button>
+<h1 id="count">
+
+0
+
+</h1>
+
+<button onclick="increase()">
+
+سبحان اللہ
+
+</button>
+
+<button onclick="resetCount()">
+
+ری سیٹ
+
+</button>
 
 </section>
 
+<!-- ================= CONTACT ================= -->
 
-    <!-- Contact -->
-    <section id="contact">
+<section id="contact">
 
-        <h2>رابطہ فارم</h2>
+<h2>
 
-        <form>
+رابطہ کریں
 
-            <label>نام</label><br>
-            <input type="text" placeholder="اپنا نام لکھیں">
+</h2>
 
-            <br><br>
+<form>
 
-            <label>ای میل</label><br>
-            <input type="email" placeholder="اپنی ای میل لکھیں">
+<input type="text" placeholder="نام">
 
-            <br><br>
+<input type="email" placeholder="ای میل">
 
-            <label>پیغام</label><br>
-            <textarea rows="5" placeholder="اپنا پیغام لکھیں"></textarea>
+<textarea placeholder="اپنا پیغام لکھیں"></textarea>
 
-            <br><br>
+<button>
 
-            <button type="submit">جمع کریں</button>
+جمع کریں
 
-        </form>
+</button>
 
-    </section>
+</form>
 
-<button id="topBtn" onclick="topFunction()">⬆️</button>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Islamic Website | All Rights Reserved</p>
-    </footer>
+<!-- TOP -->
+
+<button id="topBtn" onclick="topFunction()">
+
+⬆
+
+</button>
+
+<footer>
+
+© 2026 Islamic Website
+
+</footer>
 
 <script src="script.js"></script>
-  </body>
+
+</body>
 
 </html>
